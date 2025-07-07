@@ -23,6 +23,20 @@ module "key_vault" {
   resource_group_name = azurerm_resource_group.my_rg.name
 }
 
+module "data_factory" {
+  source              = "./modules/data_factory"
+  data_factory_name   = var.data_factory_name
+  location            = azurerm_resource_group.my_rg.location
+  resource_group_name = azurerm_resource_group.my_rg.name
+}
+
+module "data_bricks" {
+  source              = "./modules/data_bricks"
+  data_factory_name   = var.data_factory_name
+  location            = azurerm_resource_group.my_rg.location
+  resource_group_name = azurerm_resource_group.my_rg.name
+}
+
 resource "null_resource" "run_container_script" {
   depends_on = [module.storage_account]
 

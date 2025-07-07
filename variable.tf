@@ -27,3 +27,15 @@ variable "key_vault_name" {
   description = "Name of the Azure Key Vault"
   default     = "myuniquekeyvault123"
 }
+
+variable "data_factory_name" {
+  type        = string
+  description = "Name of the Azure Data Factory"
+  default = "at-df-1"
+}
+
+variable "data_bricks_name" {
+  type        = string
+  description = "Name of the Azure Data Bricks Workspace"
+  default     = "at-db-1"
+}

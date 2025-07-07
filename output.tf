@@ -27,3 +27,27 @@ output "key_vault_uri" {
   description = "URI to access the Key Vault"
   value       = module.key_vault.key_vault_uri
 }
+
+output "data_factory_name" {
+  description = "Name of the Azure Data Factory"
+  value       = module.data_factory.data_factory_name
+}
+
+output "data_factory_id" {
+  description = "Resource ID of the Azure Data Factory"
+  value       = module.data_factory.data_factory_id
+}
+
+output "data_factory_web_url" {
+  description = "Web URL of the Azure Data Factory"
+  value       = module.data_factory.data_factory_web_url
+}
+
+output "data_bricks_name" {
+    description = "The name of the Azure Databricks Workspace"
+    value       = module.data_bricks.data_bricks_name
+}
+output "workspace_url" {
+    description = "The URL of the Azure Databricks Workspace"
+    value       = module.data_bricks.workspace_url
+}
