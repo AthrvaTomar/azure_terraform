@@ -20,7 +20,7 @@ output "storage_account_primary_endpoint" {
 
 output "container_names" {
   description = "List of container names created in the storage account"
-  value       = [for container in azurerm_storage_container.my_container : container.name]
+  value       = module.storage_account.container_names
 }
 
 output "key_vault_name" {
