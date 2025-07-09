@@ -34,7 +34,7 @@ variable "account_kind" {
 variable "enable_hns" {
   type        = bool
   description = "Enable Hierarchical Namespace for the storage account"
-  default     = false
+  default     = true
 }
 
 variable "enable_sftp" {
@@ -61,12 +61,15 @@ variable "https_traffic_only_enabled" {
   default     = true
 }
 
+# tls - full form is Transport Layer Security
 variable "min_tls_version" {
   type        = string
   description = "Minimum TLS version for the storage account"
   default     = "TLS1_2"
 }
 
+# NFSv3 - Network File System version 3
+# Cross-tenant replication is used to replicate data across different Azure Active Directory tenants
 variable "nfsv3_enabled" {
   type        = bool
   description = "Enable NFSv3 for the storage account"
@@ -120,6 +123,12 @@ variable "container_delete_retention_days" {
   type        = number
   description = "Number of days to retain deleted containers"
   default     = 7
+}
+
+variable "ct_name_list" {
+  type        = list(string)
+  description = "List of container names to be created in the storage account"
+  default     = ["container1", "container2"]
 }
 
 # key vault variables

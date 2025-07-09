@@ -30,6 +30,7 @@ module "storage_account" {
   last_access_time_enabled = var.last_access_time_enabled
   delete_retention_days = var.delete_retention_days 
   container_delete_retention_days = var.container_delete_retention_days
+  ct_name_list         = var.ct_name_list
 
   depends_on = [ azurerm_resource_group.my_rg ]
 }
@@ -64,7 +65,7 @@ module "security_group" {
   nsg_name            = var.nsg_name
   location            = azurerm_resource_group.my_rg.location
   resource_group_name = azurerm_resource_group.my_rg.name
-  nsg_tags                = var.nsg_tags
+  nsg_tags            = var.nsg_tags
   inbound_rules       = var.inbound_rules
   outbound_rules      = var.outbound_rules
 
@@ -90,15 +91,15 @@ module "data_bricks" {
   depends_on = [ azurerm_resource_group.my_rg ]
 }
 
-resource "null_resource" "run_container_script" {
-  depends_on = [module.storage_account]
+# resource "null_resource" "run_container_script" {
+#   depends_on = [module.storage_account]
 
-  provisioner "local-exec" {
-    command = "powershell.exe -ExecutionPolicy Bypass -File script.ps1 -resourceGroup ${azurerm_resource_group.my_rg.name} -storageAccount ${module.storage_account.name}"
-  }
+#   provisioner "local-exec" {
+#     command = "powershell.exe -ExecutionPolicy Bypass -File script.ps1 -resourceGroup ${azurerm_resource_group.my_rg.name} -storageAccount ${module.storage_account.name}"
+#   }
 
-  triggers = {
-    storage_account_name = module.storage_account.name
-  }
-}
+#   triggers = {
+#     storage_account_name = module.storage_account.name
+#   }
+# }
 

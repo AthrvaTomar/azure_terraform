@@ -95,3 +95,8 @@ variable "container_delete_retention_days" {
   type        = number
   description = "Number of days to retain deleted containers"
 }
+
+variable "ct_name_list" {
+  type        = list(string)
+  description = "List of container names to be created in the storage account"
+}
