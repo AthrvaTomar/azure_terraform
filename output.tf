@@ -18,6 +18,11 @@ output "storage_account_primary_endpoint" {
   value       = module.storage_account.primary_blob_endpoint
 }
 
+output "container_names" {
+  description = "List of container names created in the storage account"
+  value       = [for container in azurerm_storage_container.my_container : container.name]
+}
+
 output "key_vault_name" {
   description = "Key Vault name from the module"
   value       = module.key_vault.key_vault_name
