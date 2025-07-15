@@ -1,0 +1,19 @@
+# These are the variables for the storage account module
+storage_account_name = "atsa123456"
+account_kind = "StorageV2"
+enable_hns = true
+enable_sftp = false
+enable_large_file_share = false
+enable_blob_versioning = true
+https_traffic_only_enabled = true
+min_tls_version = "TLS1_2"
+nfsv3_enabled = false
+cross_tenant_replication_enabled = false
+infrastructure_encryption_enabled = false
+shared_access_key_enabled = false
+public_network_access_enabled = true
+default_to_oauth_authentication = false
+last_access_time_enabled = true
+delete_retention_days = 7
+container_delete_retention_days = 7
+ct_name_list = ["ct1", "ct2", "ct3"]
