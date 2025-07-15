@@ -2,7 +2,6 @@
 variable "subscription_id" {
   description = "Azure subscription ID"
   type        = string
-  default     = "76e93b34-efea-4502-a7f4-096d7801fdac"
 }
 
 variable "location" {
