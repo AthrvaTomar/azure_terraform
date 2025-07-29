@@ -43,29 +43,29 @@ module "key_vault" {
   depends_on = [ azurerm_resource_group.my_rg ]
 }
 
-module "vnet" {
-  source              = "./modules/network/vnet"
-  vnet_name           = var.vnet_name
-  location            = azurerm_resource_group.my_rg.location
-  resource_group_name = azurerm_resource_group.my_rg.name
-  address_space       = var.address_space
-  dns_servers         = var.dns_servers
-  subnets             = var.subnets
+# module "vnet" {
+#   source              = "./modules/network/vnet"
+#   vnet_name           = var.vnet_name
+#   location            = azurerm_resource_group.my_rg.location
+#   resource_group_name = azurerm_resource_group.my_rg.name
+#   address_space       = var.address_space
+#   dns_servers         = var.dns_servers
+#   subnets             = var.subnets
 
-  depends_on = [ azurerm_resource_group.my_rg ]
-}
+#   depends_on = [ azurerm_resource_group.my_rg ]
+# }
 
-module "security_group" {
-  source              = "./modules/network/security_group"
-  nsg_name            = var.nsg_name
-  location            = azurerm_resource_group.my_rg.location
-  resource_group_name = azurerm_resource_group.my_rg.name
-  nsg_tags            = var.nsg_tags
-  inbound_rules       = var.inbound_rules
-  outbound_rules      = var.outbound_rules
+# module "security_group" {
+#   source              = "./modules/network/security_group"
+#   nsg_name            = var.nsg_name
+#   location            = azurerm_resource_group.my_rg.location
+#   resource_group_name = azurerm_resource_group.my_rg.name
+#   nsg_tags            = var.nsg_tags
+#   inbound_rules       = var.inbound_rules
+#   outbound_rules      = var.outbound_rules
 
-  depends_on = [ azurerm_resource_group.my_rg ]
-}
+#   depends_on = [ azurerm_resource_group.my_rg ]
+# }
 
 module "data_factory" {
   source              = "./modules/data_factory"
@@ -78,7 +78,7 @@ module "data_factory" {
 
 module "data_bricks" {
   source              = "./modules/data_bricks"
-  data_factory_name   = var.data_factory_name
+  data_bricks_name   = var.data_bricks_name
   location            = azurerm_resource_group.my_rg.location
   resource_group_name = azurerm_resource_group.my_rg.name
   managed_resource_group_name = var.managed_resource_group_name

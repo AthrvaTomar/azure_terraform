@@ -16,7 +16,7 @@ resource "azurerm_network_security_rule" "inbounds" {
   protocol                                   = each.value.protocol
   source_address_prefixes                    = each.value.source_address_prefixes
   source_application_security_group_ids      = each.value.source_application_security_group_ids
-  source_port_ranges                         = each.value.source_port_ranges
+  source_port_range                          = each.value.source_port_range
   destination_address_prefixes               = each.value.destination_address_prefixes
   destination_application_security_group_ids = each.value.destination_application_security_group_ids
   destination_port_ranges                    = each.value.destination_port_ranges
@@ -32,9 +32,9 @@ resource "azurerm_network_security_rule" "outbounds" {
   priority                                   = each.value.priority
   access                                     = each.value.access
   protocol                                   = each.value.protocol
-   source_address_prefixes                    = each.value.source_address_prefixes
+   source_address_prefixes                   = each.value.source_address_prefixes
   source_application_security_group_ids      = each.value.source_application_security_group_ids
-  source_port_ranges                         = each.value.source_port_ranges
+  source_port_range                          = each.value.source_port_range
   destination_address_prefixes               = each.value.destination_address_prefixes
   destination_application_security_group_ids = each.value.destination_application_security_group_ids
   destination_port_ranges                    = each.value.destination_port_ranges

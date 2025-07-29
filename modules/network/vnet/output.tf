@@ -24,10 +24,10 @@ output "vnet_dns_servers" {
 
 output "vnet_subnets" {
   value = {
-    for subnet in azurerm_virtual_network.my_vnet.subnet : subnet.name => {
+    for subnet in azurerm_subnet.my_subnets : subnet.name => {
       id                = subnet.id
       address_prefixes = subnet.address_prefixes
-      security_group   = subnet.security_group
+      # security_group   = try(var.subnets[ index(var.subnets[*].name, subnet.name) ].network_security_group_id, null)
     }
   }
 }

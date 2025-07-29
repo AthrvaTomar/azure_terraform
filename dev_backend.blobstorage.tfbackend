@@ -1,0 +1,4 @@
+resource_group_name = "RG-DevOps-Trainee"
+storage_account_name = "atsatest1"
+container_name = "testcontainer"
+key = "terraform.tfstate"

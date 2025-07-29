@@ -30,10 +30,10 @@ resource "azurerm_storage_account" "At-Sa-1" {
   }
 }
 
-resource "azurerm_storage_container" "my_container" {
-  for_each = { for name in var.ct_name_list : name => name}
-  name                  = each.value
-  storage_account_id  = azurerm_storage_account.At-Sa-1.id 
-  container_access_type = "private"
-  depends_on = [azurerm_storage_account.At-Sa-1]
-}
+# resource "azurerm_storage_container" "my_container" {
+#   for_each = { for name in var.ct_name_list : name => name}
+#   name                  = each.value
+#   storage_account_id  = azurerm_storage_account.At-Sa-1.id 
+#   container_access_type = "private"
+#   depends_on = [azurerm_storage_account.At-Sa-1]
+# }

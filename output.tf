@@ -18,10 +18,10 @@ output "storage_account_primary_endpoint" {
   value       = module.storage_account.primary_blob_endpoint
 }
 
-output "container_names" {
-  description = "List of container names created in the storage account"
-  value       = module.storage_account.container_names
-}
+# output "container_names" {
+#   description = "List of container names created in the storage account"
+#   value       = module.storage_account.container_names
+# }
 
 output "key_vault_name" {
   description = "Key Vault name from the module"
@@ -38,64 +38,64 @@ output "key_vault_id" {
   value       = module.key_vault.key_vault_id
 }
 
-output "vnet_name" {
-  value = module.vnet.vnet_name
-}
+# output "vnet_name" {
+#   value = module.vnet.vnet_name
+# }
 
-output "vnet_id" {
-  value = module.vnet.vnet_id
-}
+# output "vnet_id" {
+#   value = module.vnet.vnet_id
+# }
 
-output "vnet_location" {
-  value = module.vnet.vnet_location
-}
+# output "vnet_location" {
+#   value = module.vnet.vnet_location
+# }
 
-output "vnet_resource_group_name" {
-  value = module.vnet.vnet_resource_group_name
-}
+# output "vnet_resource_group_name" {
+#   value = module.vnet.vnet_resource_group_name
+# }
 
-output "vnet_address_space" {
-  value = module.vnet.vnet_address_space
-}
+# output "vnet_address_space" {
+#   value = module.vnet.vnet_address_space
+# }
 
-output "vnet_dns_servers" {
-  value = module.vnet.vnet_dns_servers
-}
+# output "vnet_dns_servers" {
+#   value = module.vnet.vnet_dns_servers
+# }
 
-output "vnet_subnets" {
-  value = {
-    for subnet in module.vnet.vnet_subnets : subnet.name => {
-      id                = subnet.id
-      address_prefixes = subnet.address_prefixes
-      security_group   = subnet.security_group
-    }
-  }
-}
+# output "vnet_subnets" {
+#   value = {
+#     for name, subnet in module.vnet.vnet_subnets : name => {
+#       id                        = subnet.id
+#       address_prefixes          = subnet.address_prefixes
+#       network_security_group_id = subnet.network_security_group_id
+#     }
+#   }
+# }
 
-output "nsg_id" {
-  value       = module.security_group.nsg_id
-  description = "The network security group configuration ID."
-}
+# output "nsg_id" {
+#   value       = module.security_group.nsg_id
+#   description = "The network security group configuration ID."
+# }
 
-output "nsg_name" {
-  value       = module.security_group.nsg_name
-  description = "The name of the network security group."
-}
+# output "nsg_name" {
+#   value       = module.security_group.nsg_name
+#   description = "The name of the network security group."
+# }
 
-output "nsg_tags" {
-  value       = module.security_group.nsg_tags
-  description = "The tags assigned to the resource."
-}
+# output "nsg_tags" {
+#   value       = module.security_group.nsg_tags
+#   description = "The tags assigned to the resource."
+# }
 
-output "nsg_inbound_rules" {
-  value       = { for rule in module.security_group.nsg_inbound_rules : rule.name => rule }
-  description = "Blocks containing configuration of each inbound security rule."
-}
+# output "nsg_inbound_rules" {
+#   value       = { for rule in module.security_group.nsg_inbound_rules : rule.name => rule }
+#   description = "Blocks containing configuration of each inbound security rule."
+# }
 
-output "nsg_outbound_rules" {
-  value       = { for rule in module.security_group.nsg_outbound_rules : rule.name => rule }
-  description = "Blocks containing configuration of each outbound security rule."
-}
+# output "nsg_outbound_rules" {
+#   value       = { for rule in module.security_group.nsg_outbound_rules : rule.name => rule }
+#   description = "Blocks containing configuration of each outbound security rule."
+# }
 
 
 output "data_factory_name" {

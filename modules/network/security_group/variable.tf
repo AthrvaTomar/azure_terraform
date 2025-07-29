@@ -27,7 +27,7 @@ variable "inbound_rules" {
     protocol                                   = string
     source_address_prefixes                    = optional(list(string))
     source_application_security_group_ids      = optional(list(string))
-    source_port_ranges                         = optional(list(string))
+    source_port_range                          = optional(string)
     destination_address_prefixes               = optional(list(string))
     destination_application_security_group_ids = optional(list(string))
     destination_port_ranges                    = optional(list(string))
@@ -45,7 +45,7 @@ variable "outbound_rules" {
     protocol                                   = string
     source_address_prefixes                    = optional(list(string))
     source_application_security_group_ids      = optional(list(string))
-    source_port_ranges                         = optional(list(string))
+    source_port_range                          = optional(string)
     destination_address_prefixes               = optional(list(string))
     destination_application_security_group_ids = optional(list(string))
     destination_port_ranges                    = optional(list(string))
